@@ -3,6 +3,8 @@ import Button from './Button';
 import { jsx, css } from '@emotion/core';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { addParameters } from '@storybook/react';
+import StoryRouter from 'storybook-react-router';
 import ButtonGroup from '../ButtonGroup/ButtonGroup';
 import Icon from '../Icon/Icon';
 
@@ -11,7 +13,6 @@ export default {
   component: Button,
   decorators: [withKnobs]
 };
-
 
 // export const button = () => {
 //   return <Button>BUTTON</Button>;
@@ -154,3 +155,25 @@ export const iconOnly = () => {
     </div>
   );
 };
+
+
+const newViewports = {
+  kindleFire2: {
+    name: 'Kindle Fire 2',
+    styles: {
+      width: '600px',
+      height: '963px',
+    },
+  },
+  kindleFireHD: {
+    name: 'Kindle Fire HD',
+    styles: {
+      width: '533px',
+      height: '801px',
+    },
+  },
+};
+
+addParameters({
+  viewport: { viewports: newViewports },
+});
